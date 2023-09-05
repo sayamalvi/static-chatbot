@@ -32,14 +32,13 @@ function getBotResponse(input) {
   let possibleResponses = [];
   for (let i = 0; i < words.length; i++) {
     for (let [key, value] of resp.entries()) {
-      if (key.includes(words[i])) {
+      if (key.toLowerCase().includes(words[i])) {
         possibleResponses.push(value);
       }
     }
   }
-  console.log(possibleResponses);
   if (possibleResponses.length > 0) {
-    return possibleResponses;
+    return possibleResponses[0];
   }
   return "I didn't understand that:( Please contact +91-8955570181 for further assistance";
 }
