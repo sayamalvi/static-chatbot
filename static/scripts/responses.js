@@ -17,7 +17,7 @@ const resp = new Map([
   ],
   [
     "What are the different types of treatments",
-    "We offer a wide range of Ayurvedic treatments...",
+    "We offer a wide range of Ayurvedic treatments",
   ],
 ]);
 

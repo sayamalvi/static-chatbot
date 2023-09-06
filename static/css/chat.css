@@ -79,6 +79,7 @@
 
 #chat-icon:hover {
     opacity: .7;
+    cursor: pointer;
 }
 
 /* Chat bubbles */
@@ -112,7 +113,7 @@
 .userText span {
     line-height: 1.5em;
     display: inline-block;
-    background: #5ca6fa;
+    background: rgb(37, 104, 79);
     padding: 10px;
     border-radius: 8px;
     border-bottom-right-radius: 2px;
