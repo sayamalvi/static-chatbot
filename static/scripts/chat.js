@@ -57,9 +57,14 @@ firstBotMessage();
 
 function getHardResponse(userText) {
   let botResponse = getBotResponse(userText);
-  let botHtml = '<p class="botText"><span>' + botResponse + "</span></p>";
-  $("#chatbox").append(botHtml);
-
+  if (botResponse instanceof HTMLFormElement) {
+    let botHtml = '<form class="botMessage"><span>' + "</span></form>";
+    $("#chatbox").append(botHtml);
+    $("#chatbox").append(botResponse);
+  } else {
+    let botHtml = '<p class="botText"><span>' + botResponse + "</span></p>";
+    $("#chatbox").append(botHtml);
+  }
   document.getElementById("chat-bar-bottom").scrollIntoView(true);
 }
 
@@ -70,7 +75,7 @@ function getResponse() {
   for (i = 0; i < ele.length; i++) {
     if (ele[i].checked) userText = ele[i].value;
   }
-  
+
   let userHtml = '<p class="userText"><span>' + userText + "</span></p>";
 
   $("#textInput").val("");
