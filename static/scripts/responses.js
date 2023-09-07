@@ -3,6 +3,7 @@ const resp = new Map([
   ["patient", ["treatments", "book appointment", "profile update"]],
   ["center", ["register", "profile update"]],
   ["treatments", ["Vomit", "Ante Natal", "Ayurveda"]],
+  ["book appointment", ["https://www.panchkaram.com/search"]],
 ]);
 
 function getBotResponse(input) {
@@ -10,6 +11,10 @@ function getBotResponse(input) {
 
   for (let [key, value] of resp.entries()) {
     if (key.toLowerCase().includes(input)) {
+      if (value[0].includes("http")) {
+        window.location.href = value[0];
+        return "Redirecting you to our doctor's page !";
+      }
       const form = document.createElement("form");
       for (let i = 0; i < value.length; i++) {
         const input = document.createElement("input");
@@ -22,7 +27,6 @@ function getBotResponse(input) {
         label.innerHTML = value[i];
         form.appendChild(label);
         form.appendChild(input);
-        console.log(input, label);
       }
       if (form.hasChildNodes()) return form;
     }

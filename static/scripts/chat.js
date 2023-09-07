@@ -57,8 +57,9 @@ firstBotMessage();
 
 function getHardResponse(userText) {
   let botResponse = getBotResponse(userText);
+  console.log(botResponse)
   if (botResponse instanceof HTMLFormElement) {
-    let botHtml = '<form class="botMessage"><span>' + "</span></form>";
+    let botHtml = "<form></form>";
     $("#chatbox").append(botHtml);
     $("#chatbox").append(botResponse);
   } else {
