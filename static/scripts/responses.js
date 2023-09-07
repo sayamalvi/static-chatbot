@@ -4,6 +4,12 @@ const resp = new Map([
   ["center", ["register", "profile update"]],
   ["treatments", ["Vomit", "Ante Natal", "Ayurveda"]],
   ["book appointment", ["https://www.panchkaram.com/search"]],
+  [
+    "profile update",
+    [
+      "Login to your dashboard. There you will see a update profile option. If you are still having issues, please contact +91-8955570181.",
+    ],
+  ],
 ]);
 
 function getBotResponse(input) {
@@ -13,7 +19,7 @@ function getBotResponse(input) {
     if (key.toLowerCase().includes(input)) {
       if (value[0].includes("http")) {
         window.location.href = value[0];
-        return "Redirecting you to our doctor's page !";
+        return "Just a second. We got you !";
       }
       const form = document.createElement("form");
       for (let i = 0; i < value.length; i++) {
@@ -32,5 +38,5 @@ function getBotResponse(input) {
     }
   }
 
-  return "I didn't understand that:( Please contact +91-8955570181 for further assistance";
+  return "Please contact +91-8955570181 for further assistance";
 }
