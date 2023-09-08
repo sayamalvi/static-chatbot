@@ -142,6 +142,26 @@
     animation: floatup .5s forwards
 }
 
+.botResponse button {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: rgb(37, 104, 79);
+    border: 2px solid rgb(37, 104, 79);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: .7rem;
+    cursor: pointer;
+    outline: none;
+    margin: 0 7px 0 0;
+    transition: 0.3s;
+}
+
+.botResponse button:visited, button:active, button:focus {
+    color: white;
+    background-color: rgb(37, 104, 79);
+
+}
+
 @keyframes floatup {
     from {
         transform: translateY(14px);

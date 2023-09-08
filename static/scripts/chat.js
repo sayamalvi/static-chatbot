@@ -65,7 +65,6 @@ function getBotResponse(input) {
         button.value = value[i];
         button.textContent = value[i];
         button.onclick = function () {
-          console.log(value[i].toString().toLowerCase());
           sendButton(value[i].toString().toLowerCase());
         };
         div.appendChild(button);
