@@ -48,7 +48,17 @@ function firstBotMessage() {
 }
 
 firstBotMessage();
-
+function capitalize(text) {
+  var splitStr = text.toLowerCase().split(" ");
+  for (var i = 0; i < splitStr.length; i++) {
+    // You do not need to check if i is larger than splitStr length, as your for does that for you
+    // Assign it back to the array
+    splitStr[i] =
+      splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+  }
+  // Directly return the joined string
+  return splitStr.join(" ");
+}
 function getBotResponse(input) {
   input = input.toLowerCase();
   for (let [key, value] of resp.entries()) {
@@ -57,13 +67,14 @@ function getBotResponse(input) {
         window.location.href = value[0];
         return "Just a second. We got you !";
       }
+      if (value.length === 1) return value[0];
       const div = document.createElement("div");
       div.classList.add("botResponse");
       for (let i = 0; i < value.length; i++) {
         const button = document.createElement("button");
         button.type = "button";
         button.value = value[i];
-        button.textContent = value[i];
+        button.textContent = capitalize(value[i]);
         button.onclick = function () {
           sendButton(value[i].toString().toLowerCase());
         };
