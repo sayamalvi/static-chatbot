@@ -35,12 +35,13 @@ function firstBotMessage() {
   document.getElementById("botStarterMessage").innerHTML = `
     <p class="botText">
     Welcome to Panchkaram! Help us get to know you more.
+    </p>
     <div id='initialBotResponse' class='botResponse'>
     <button type='button' value='doctor' onclick="sendButton('doctor')">Doctor</button>
     <button type='button' value='patient' onclick="sendButton('patient')">Patient</button>
     <button type='button' value='center' onclick="sendButton('center')">Center</button>
     </div>
-    </p>`;
+    `;
 
   let time = getTime();
   $("#chat-timestamp").append(time);
@@ -51,12 +52,9 @@ firstBotMessage();
 function capitalize(text) {
   var splitStr = text.toLowerCase().split(" ");
   for (var i = 0; i < splitStr.length; i++) {
-    // You do not need to check if i is larger than splitStr length, as your for does that for you
-    // Assign it back to the array
     splitStr[i] =
       splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
   }
-  // Directly return the joined string
   return splitStr.join(" ");
 }
 function getBotResponse(input) {
