@@ -1,5 +1,4 @@
 var coll = document.getElementsByClassName("collapsible");
-//Remove this after testing
 
 const content = document.querySelector(".content");
 content.style.maxHeight = content.scrollHeight + "px";
@@ -32,34 +31,54 @@ function getTime() {
   let time = hours + ":" + minutes;
   return time;
 }
-
 function firstBotMessage() {
   document.getElementById("botStarterMessage").innerHTML = `
     <p class="botText">
-        Welcome to Panchkaram! Help us get to know you more.
-        <form id='startingOptions'>
-            <input type="radio" id="doctor" name="know_user" value="doctor">
-            <label for="doctor">Doctor</label><br>
-            <input type="radio" id="patient" name="know_user" value="patient">
-            <label for="patient">Patient</label><br>
-            <input type="radio" id="center" name="know_user" value="center">
-            <label for="center">Center</label>
-        </form>
+    Welcome to Panchkaram! Help us get to know you more.
+    <div id='initialBotResponse' class='botResponse'>
+    <button type='button' value='doctor' onclick="sendButton('doctor')">Doctor</button>
+    <button type='button' value='patient' onclick="sendButton('patient')">Patient</button>
+    <button type='button' value='center' onclick="sendButton('center')">Center</button>
+    </div>
     </p>`;
 
   let time = getTime();
-
   $("#chat-timestamp").append(time);
   document.getElementById("userInput").scrollIntoView(false);
 }
 
 firstBotMessage();
 
+function getBotResponse(input) {
+  input = input.toLowerCase();
+  for (let [key, value] of resp.entries()) {
+    if (key.toLowerCase().includes(input)) {
+      if (value[0].includes("http")) {
+        window.location.href = value[0];
+        return "Just a second. We got you !";
+      }
+      const div = document.createElement("div");
+      div.classList.add("botResponse");
+      for (let i = 0; i < value.length; i++) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.value = value[i];
+        button.textContent = value[i];
+        button.onclick = function () {
+          console.log(value[i].toString().toLowerCase());
+          sendButton(value[i].toString().toLowerCase());
+        };
+        div.appendChild(button);
+      }
+      if (div.hasChildNodes()) return div;
+    }
+  }
+  return "Please contact +91-8955570181 for further assistance";
+}
 function getHardResponse(userText) {
   let botResponse = getBotResponse(userText);
-  console.log(botResponse)
-  if (botResponse instanceof HTMLFormElement) {
-    let botHtml = "<form></form>";
+  if (botResponse instanceof HTMLDivElement) {
+    let botHtml = "";
     $("#chatbox").append(botHtml);
     $("#chatbox").append(botResponse);
   } else {
@@ -69,39 +88,12 @@ function getHardResponse(userText) {
   document.getElementById("chat-bar-bottom").scrollIntoView(true);
 }
 
-function getResponse() {
-  let userText = $("#startingOptions");
-
-  var ele = document.getElementsByName("know_user");
-  for (i = 0; i < ele.length; i++) {
-    if (ele[i].checked) userText = ele[i].value;
-  }
-
-  let userHtml = '<p class="userText"><span>' + userText + "</span></p>";
-
-  $("#textInput").val("");
-  $("#chatbox").append(userHtml);
-  document.getElementById("chat-bar-bottom").scrollIntoView(true);
-
-  setTimeout(() => {
-    getHardResponse(userText);
-  }, 1000);
-}
-
-function buttonSendText(sampleText) {
-  let userHtml = '<p class="userText"><span>' + sampleText + "</span></p>";
-
-  $("#textInput").val("");
-  $("#chatbox").append(userHtml);
-  document.getElementById("chat-bar-bottom").scrollIntoView(true);
-}
-
-function sendButton() {
-  getResponse();
+function sendButton(userText) {
+  getHardResponse(userText);
 }
 
 $("#textInput").keypress(function (e) {
-  if (e.which == 13) {
+  if (e.which === 13) {
     getResponse();
   }
 });
