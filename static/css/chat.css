@@ -149,18 +149,20 @@
 .botResponse {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     margin: 1rem;
 }
 
 .botResponse button {
     animation: floatup .5s forwards;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     color: rgb(37, 104, 79);
+    background-color: white;
+    letter-spacing: 1px;
     border: 2px solid rgb(37, 104, 79);
     border-radius: 5px;
     padding: 5px 10px;
-    font-size: .7rem;
+    font-size: .8rem;
     cursor: pointer;
     outline: none;
     margin: 0 7px 7px 0;

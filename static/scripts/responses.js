@@ -2,7 +2,34 @@ const resp = new Map([
   ["doctor", ["register", "profile update"]],
   ["patient", ["treatments", "book appointment", "profile update"]],
   ["center", ["register", "profile update"]],
-  ["treatments", ["Vomit", "Ante Natal", "Ayurveda"]],
+  [
+    "treatments",
+    [
+      "Vomit",
+      "Ante Natal",
+      "Ayurveda",
+      "Cancer Specialist",
+      "Cardiologist",
+      "Diabetes, Metabolic",
+      "Endocrinologist",
+      "Enema",
+      "Eye Ent",
+      "Gastroenterologist",
+      "General Medicine",
+      "General Surgery",
+      "Gynecologist",
+      "Homoepath",
+      "Infertility",
+      "Kshara and Anukshara",
+      "Neurologist",
+      "Nostril",
+      "Orthopedic",
+      "Pediatric",
+      "Pulmonologist",
+      "Purgation",
+      "Rheumatologist",
+    ],
+  ],
   ["book appointment", ["https://www.panchkaram.com/search"]],
   [
     "profile update",
@@ -11,5 +38,3 @@ const resp = new Map([
     ],
   ],
 ]);
-
-
