@@ -34,7 +34,7 @@ function getTime() {
 function firstBotMessage() {
   document.getElementById("botStarterMessage").innerHTML = `
     <p class="botText">
-    Welcome to panchkaram.com !<br /> What are you looking for <br />(आप क्या ढूंढ रहे हैं?)? 
+    Welcome to panchkaram.com ! What are you looking for ? <br />(आप क्या ढूंढ रहे हैं?)? 
     </p>
     <div id='initialBotResponse' class='botResponse'>
     <button type='button' value='doctor' onclick="sendButton('doctor')">Doctor (चिकित्सक)</button>

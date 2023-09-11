@@ -61,9 +61,15 @@ const resp = new Map([
     ],
   ],
   ["video consult", ["https://www.panchkaram.com/search"]],
-  ["patient register", ["https://www.panchkaram.com/center-register"]],
+  ["patient register", ["https://www.panchkaram.com/register"]],
 
   //center related
   ["center", ["center register", "center profile update"]],
-  []
+  ["center register (पंजीकरण)", ["https://www.panchkaram.com/center-register"]],
+  [
+    "center profile update (प्रोफ़ाइल अद्यतन)",
+    [
+      "Login to your patient dashboard. There you will see a update profile option. If you are still having issues, please contact +91-8955570181. (अपने रोगी डैशबोर्ड में लॉग इन करें। वहां आपको अपडेट प्रोफाइल का विकल्प दिखेगा. यदि आपको अभी भी समस्या हो रही है, तो कृपया +91-8955570181 पर संपर्क करें।)",
+    ],
+  ],
 ]);
