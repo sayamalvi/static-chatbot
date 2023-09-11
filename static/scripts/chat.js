@@ -34,12 +34,12 @@ function getTime() {
 function firstBotMessage() {
   document.getElementById("botStarterMessage").innerHTML = `
     <p class="botText">
-    Welcome to Panchkaram! Help us get to know you more.
+    Welcome to panchkaram.com !<br /> What are you looking for <br />(आप क्या ढूंढ रहे हैं?)? 
     </p>
     <div id='initialBotResponse' class='botResponse'>
-    <button type='button' value='doctor' onclick="sendButton('doctor')">Doctor</button>
-    <button type='button' value='patient' onclick="sendButton('patient')">Patient</button>
-    <button type='button' value='center' onclick="sendButton('center')">Center</button>
+    <button type='button' value='doctor' onclick="sendButton('doctor')">Doctor (चिकित्सक)</button>
+    <button type='button' value='patient' onclick="sendButton('patient')">Patient (मरीज़)</button>
+    <button type='button' value='center' onclick="sendButton('center')">Center (पंचकर्म केंद्र)</button>
     </div>
     `;
 
@@ -49,6 +49,7 @@ function firstBotMessage() {
 }
 
 firstBotMessage();
+
 function capitalize(text) {
   var splitStr = text.toLowerCase().split(" ");
   for (var i = 0; i < splitStr.length; i++) {
@@ -57,13 +58,14 @@ function capitalize(text) {
   }
   return splitStr.join(" ");
 }
+
 function getBotResponse(input) {
-  input = input.toLowerCase();
+  input = input.split(" (")[0].toLowerCase();
   for (let [key, value] of resp.entries()) {
     if (key.toLowerCase().includes(input)) {
       if (value[0].includes("http")) {
         window.location.href = value[0];
-        return "Just a second. We got you !";
+        return "Just a second. We got you (कृपया थोड़ी देर प्रतीक्षा करें. हम आपको पुनर्निर्देशित कर रहे हैं) !";
       }
       if (value.length === 1) return value[0];
       const div = document.createElement("div");
